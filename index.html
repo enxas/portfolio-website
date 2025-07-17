@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>enxas.eu</title>
+
+
+	<style>
+		@font-face {
+			font-family: Inter;
+			src: url('./assets/Inter-VariableFont_slnt,wght.ttf') format('truetype');
+			font-style: normal;
+			font-weight: 400 700;
+		}
+
+		/* **************** START OF RESETS ***************** */
+		/* Box sizing rules */
+		*,
+		*::before,
+		*::after {
+			box-sizing: border-box;
+		}
+
+		/* Remove default margin */
+		body,
+		h1,
+		h2,
+		h3,
+		h4,
+		p,
+		figure,
+		blockquote,
+		dl,
+		dd {
+			margin: 0;
+		}
+
+		/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+		ul[role='list'],
+		ol[role='list'] {
+			list-style: none;
+		}
+
+		/* Set core root defaults */
+		html:focus-within {
+			scroll-behavior: smooth;
+		}
+
+		/* Set core body defaults */
+		body {
+			min-height: 100vh;
+			text-rendering: optimizeSpeed;
+			line-height: 1.5;
+		}
+
+		/* A elements that don't have a class get default styles */
+		a:not([class]) {
+			text-decoration-skip-ink: auto;
+		}
+
+		/* Make images easier to work with */
+		img,
+		picture {
+			max-width: 100%;
+			display: block;
+		}
+
+		/* Inherit fonts for inputs and buttons */
+		input,
+		button,
+		textarea,
+		select {
+			font: inherit;
+		}
+
+		/* **************** END OF RESETS ***************** */
+		:root {
+			--primary-color: #1d1d1d;
+			--secondary-color: #2f2f2f;
+			--accent-color: #ffffff;
+			--separator-1: 20px;
+			--brand-color: #9bacff;
+		}
+
+		body {
+			font-family: 'Inter', sans-serif;
+			background-color: #0c1b33;
+			color: var(--accent-color);
+			/*background-image: url("./assets/binary.png");*/
+			background-repeat: repeat;
+			background-size: 770px;
+			/*animation: slide 100s linear infinite;*/
+		}
+
+		@keyframes slide {
+			100% {
+				background-position: 0 100%;
+			}
+		}
+
+		.container {
+			background-color: var(--primary-color);
+			border: 2px solid var(--accent-color);
+			padding: 15px;
+			max-width: 1440px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		hr {
+			border: 0;
+			width: 50%;
+			height: 2px;
+			background-image: linear-gradient(to right, transparent, var(--accent-color), transparent);
+			margin: 50px auto;
+
+
+		}
+
+		.newTabSVG {
+			max-width: 14px;
+			margin-left: 10px;
+			fill: var(--primary-color);
+		}
+
+
+		.button {
+			border: 1px solid transparent;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background-color: var(--accent-color);
+			color: var(--primary-color);
+			padding: 0.75rem 1rem;
+			text-align: center;
+			cursor: pointer;
+			user-select: none;
+			margin: 10px auto;
+			text-decoration: none;
+			width: 100%;
+			font-weight: bold;
+		}
+
+		.button:hover {
+			border: 1px solid var(--accent-color);
+			color: var(--accent-color);
+			background-color: var(--primary-color);
+		}
+
+		.button:hover .newTabSVG {
+			fill: var(--accent-color)
+		}
+
+		.container__sub {
+			background-color: var(--secondary-color);
+			padding: 10px 20px;
+		}
+
+
+
+		.proj_desc {
+			width: auto;
+			order: 2;
+
+			display: flex;
+			flex-flow: column;
+			justify-content: space-between;
+		}
+
+		.proj_img {
+			width: auto;
+			order: 1;
+		}
+
+		.proj_name {
+			font-size: 30px;
+		}
+
+		.project {
+			display: flex;
+			flex-flow: column;
+		}
+
+		.head2 {
+			font-size: clamp(30px, 5vw, 40px);
+			margin: 20px 0;
+		}
+
+		ul {
+			padding-left: 16px;
+			margin: 0px auto;
+		}
+
+		.white {
+			color: var(--brand-color);
+		}
+
+		.intro1 {
+			font-size: 30px;
+		}
+
+		.intro2 {
+			font-size: clamp(40px, 5vw, 60px);
+			color: var(--brand-color);
+		}
+
+		.intro3 {
+			font-size: 25px;
+		}
+
+		.font20 {
+			font-size: 20px;
+		}
+
+		.btn-link {
+			text-decoration: none;
+		}
+
+
+		@media (min-width: 1200px) {
+			.container {
+				padding: 50px 100px;
+				margin: 40px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+
+			.project {
+				display: flex;
+				flex-flow: row;
+			}
+
+			.proj_desc {
+				order: initial;
+				width: 40%;
+			}
+
+			.proj_img {
+				order: initial;
+				width: 60%;
+				margin: auto;
+			}
+
+			hr {
+				margin: 80px auto;
+			}
+
+			.head2 {
+				margin: 10px 0;
+			}
+
+			.pad_r {
+				padding-right: var(--separator-1);
+			}
+
+			.pad_l {
+				padding-left: var(--separator-1);
+			}
+		}
+	</style>
+
+</head>
+
+<body>
+	<div class="container">
+		<a href="#contact" class="button" style="margin-right: 0;max-width: 160px;">Contact Me</a>
+
+		<div>
+			<div>
+				<div class="intro1">Hi there,</div>
+				<div class="intro2">I'm a Full Stack Web Developer.</div>
+				<div class="intro3">I mostly work on web technologies, but my hobbies involve <br> learning new things
+					and building all kinds of software.</div>
+			</div>
+		</div>
+
+		<hr>
+
+		<div class="head2">
+			Featured Projects
+		</div>
+
+		<div class="container__sub project">
+			<div class="proj_desc pad_r">
+				<div>
+					<div class="proj_name"><strong>Laravel Goto Facade</strong></div>
+					<div>
+						Adds Ctrl + Left Mouse Click functionality to VSCode for Laravel Real-Time Facades.
+					</div>
+					<br>
+					<div>
+						<p>Technologies used:</p>
+						<ul>
+							<li><strong>TypeScript</strong> language</li>
+							<li><strong>Visual Studio Code</strong> editor</li>
+						</ul>
+					</div>
+				</div>
+				<div>
+					<a href="https://marketplace.visualstudio.com/items?itemName=enxas-laravel-goto-facade.laravel-goto-facade"
+						target="_blank" class="btn-link">
+						<div class="button">Check It Out
+							<svg class="newTabSVG" version="1.1" xmlns="http://www.w3.org/2000/svg"
+								xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512"
+								xml:space="preserve">
+								<g>
+									<path
+										d="M455.3,455.3H56.7V56.7H256V0H56.7C25.4,0,0,25.4,0,56.7v398.7C0,486.6,25.4,512,56.7,512h398.7c31.3,0,56.7-25.4,56.7-56.7V256h-56.7C455.3,256,455.3,455.3,455.3,455.3z M312.7,0v56.7h102.6L134.8,337.1l40.1,40.1L455.3,96.7v102.6H512V0H312.7z" />
+								</g>
+							</svg>
+						</div>
+
+					</a>
+				</div>
+			</div>
+			<div class="proj_img">
+				<img src="./assets/laravel_goto_facade.png" loading="lazy" alt="image of Laravel Goto Facade">
+			</div>
+		</div>
+
+		<br>
+
+		<div class="container__sub project">
+			<div class="proj_desc pad_r">
+				<div>
+					<div class="proj_name"><strong>PHPMemo</strong></div>
+					<div>
+						My personal blog about PHP development and related topics like MySQL, Laravel, and more.
+					</div>
+					<br>
+					<div>
+						<p>Technologies used:</p>
+						<ul>
+							<li><strong>Publii</strong> static site generator</li>
+							<li><strong>Github Pages</strong> hosting</li>
+						</ul>
+					</div>
+				</div>
+				<div>
+					<a href="https://phpmemo.com" target="_blank" class="btn-link">
+						<div class="button">Check It Out
+							<svg class="newTabSVG" version="1.1" xmlns="http://www.w3.org/2000/svg"
+								xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512"
+								xml:space="preserve">
+								<g>
+									<path
+										d="M455.3,455.3H56.7V56.7H256V0H56.7C25.4,0,0,25.4,0,56.7v398.7C0,486.6,25.4,512,56.7,512h398.7c31.3,0,56.7-25.4,56.7-56.7V256h-56.7C455.3,256,455.3,455.3,455.3,455.3z M312.7,0v56.7h102.6L134.8,337.1l40.1,40.1L455.3,96.7v102.6H512V0H312.7z" />
+								</g>
+							</svg>
+						</div>
+
+					</a>
+				</div>
+			</div>
+			<div class="proj_img">
+				<img src="./assets/php_memo.png" loading="lazy" alt="image of PHPMemo">
+			</div>
+		</div>
+
+		<br>
+
+		<div class="container__sub project">
+			<div class="proj_desc pad_r">
+				<div>
+					<div class="proj_name"><strong>ModernStrategist</strong></div>
+					<div>
+						A blog about RTS games, featuring a list of modern real-time strategy games.
+					</div>
+					<br>
+					<div>
+						<p>Technologies used:</p>
+						<ul>
+							<li><strong>Laravel PHP</strong> framework</li>
+							<li><strong>MySQL</strong> database</li>
+							<li><strong>Docker</strong> for development and deployment</li>
+							<li><strong>Git</strong> for development</li>
+							<li><strong>NGINX</strong> web server</li>
+							<li><strong>Ubuntu/Linux</strong> server</li>
+						</ul>
+					</div>
+				</div>
+				<div>
+					<div href="https://modernstrategist.eu" target="_blank" class="btn-link">
+						<div class="button">CURRENTLY OFFLINE
+							<svg class="newTabSVG" version="1.1" xmlns="http://www.w3.org/2000/svg"
+								xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512"
+								xml:space="preserve">
+								<g>
+									<path
+										d="M455.3,455.3H56.7V56.7H256V0H56.7C25.4,0,0,25.4,0,56.7v398.7C0,486.6,25.4,512,56.7,512h398.7c31.3,0,56.7-25.4,56.7-56.7V256h-56.7C455.3,256,455.3,455.3,455.3,455.3z M312.7,0v56.7h102.6L134.8,337.1l40.1,40.1L455.3,96.7v102.6H512V0H312.7z" />
+								</g>
+							</svg>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="proj_img">
+				<img src="./assets/modern_strategist.jpg" loading="lazy" alt="image of ModernStrategist">
+			</div>
+		</div>
+
+		<br>
+
+		<div class="container__sub project">
+			<div class="proj_desc pad_r">
+				<div>
+					<div class="proj_name"><strong>Ecommerce Store</strong></div>
+					<div>
+						This store allows administrator to manage products, change their information and edit their
+						descriptions with a rich text editor. You can customize storefront, product categories and their
+						reviews.
+					</div>
+					<br>
+					<div>
+						<p>Technologies used:</p>
+						<ul>
+							<li><strong>Laravel PHP</strong> framework</li>
+							<li><strong>JavaScript</strong> and <strong>jQuery</strong> for user experience</li>
+							<li><strong>MySQL</strong> database</li>
+							<li><strong>SASS</strong> styling</li>
+							<li><strong>Docker</strong> for development and deployment</li>
+							<li><strong>Git</strong> for development</li>
+							<li><strong>NGINX</strong> web server</li>
+							<li><strong>Ubuntu/Linux</strong> server</li>
+						</ul>
+					</div>
+				</div>
+				<div>
+					<div href="https://store.enxas.eu" target="_blank" class="btn-link">
+						<div class="button">CURRENTLY OFFLINE 
+							<svg class="newTabSVG" version="1.1" xmlns="http://www.w3.org/2000/svg"
+								xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512"
+								xml:space="preserve">
+								<g>
+									<path
+										d="M455.3,455.3H56.7V56.7H256V0H56.7C25.4,0,0,25.4,0,56.7v398.7C0,486.6,25.4,512,56.7,512h398.7c31.3,0,56.7-25.4,56.7-56.7V256h-56.7C455.3,256,455.3,455.3,455.3,455.3z M312.7,0v56.7h102.6L134.8,337.1l40.1,40.1L455.3,96.7v102.6H512V0H312.7z" />
+								</g>
+							</svg>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="proj_img">
+				<img src="./assets/store.jpg" loading="lazy" alt="image of Ecommerce Store">
+			</div>
+		</div>
+
+		<br>
+
+		<div class="container__sub project">
+
+			<div class="proj_desc pad_r">
+				<div>
+					<div class="proj_name"><strong>Photo Gallery</strong></div>
+					<div>
+						A photo gallery where users can store and view their photos in various layouts. Users can create
+						an account using an email/password combination or by signing in with Google.
+					</div>
+					<br>
+					<div>
+						Technologies used:
+						<ul>
+							<li><strong>React</strong> framework for frontend</li>
+							<li><strong>Firebase</strong> database and auth</li>
+							<li><strong>SASS</strong> styling</li>
+							<li><strong>Git</strong> for development</li>
+						</ul>
+					</div>
+				</div>
+				<div>
+					<a href="https://enxas.github.io/holiday-photo-gallery" target="_blank" class="btn-link">
+						<div class="button">Check It Out
+							<svg class="newTabSVG" version="1.1" xmlns="http://www.w3.org/2000/svg"
+								xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512"
+								xml:space="preserve">
+								<g>
+									<path
+										d="M455.3,455.3H56.7V56.7H256V0H56.7C25.4,0,0,25.4,0,56.7v398.7C0,486.6,25.4,512,56.7,512h398.7c31.3,0,56.7-25.4,56.7-56.7V256h-56.7C455.3,256,455.3,455.3,455.3,455.3z M312.7,0v56.7h102.6L134.8,337.1l40.1,40.1L455.3,96.7v102.6H512V0H312.7z" />
+								</g>
+							</svg>
+						</div>
+					</a>
+				</div>
+			</div>
+			<div class="proj_img">
+				<img src="./assets/gallery.png?v=1" loading="lazy" alt="image of Gallery">
+			</div>
+		</div>
+
+		<br>
+
+		<div class="container__sub project">
+
+			<div class="proj_desc pad_r">
+				<div>
+					<div class="proj_name"><strong>Blogging Site</strong></div>
+					<div>
+						This single page app allows users to create articles/blog posts by using HTML as markup
+						language.
+						Pagination sorts posts by creation date, allowing visitors to see latest posts and visit
+						specific
+						pages.
+					</div>
+					<br>
+					<div>
+						Technologies used:
+						<ul>
+							<li><strong>Symfony PHP</strong> framework for API backend</li>
+							<li><strong>Vue</strong> framework for frontend</li>
+							<li><strong>PostgreSQL</strong> database</li>
+							<li><strong>SASS</strong> styling</li>
+							<li><strong>Docker</strong> for development and deployment</li>
+							<li><strong>Git</strong> for development</li>
+							<li><strong>NGINX</strong> web server</li>
+							<li><strong>Ubuntu/Linux</strong> server</li>
+						</ul>
+					</div>
+				</div>
+				<div>
+					<div href="https://blog.enxas.eu" target="_blank" class="btn-link">
+						<div class="button">CURRENTLY OFFLINE 
+							<svg class="newTabSVG" version="1.1" xmlns="http://www.w3.org/2000/svg"
+								xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512"
+								xml:space="preserve">
+								<g>
+									<path
+										d="M455.3,455.3H56.7V56.7H256V0H56.7C25.4,0,0,25.4,0,56.7v398.7C0,486.6,25.4,512,56.7,512h398.7c31.3,0,56.7-25.4,56.7-56.7V256h-56.7C455.3,256,455.3,455.3,455.3,455.3z M312.7,0v56.7h102.6L134.8,337.1l40.1,40.1L455.3,96.7v102.6H512V0H312.7z" />
+								</g>
+							</svg>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="proj_img">
+				<img src="./assets/blog.jpg" loading="lazy" alt="image of Blogging Site">
+			</div>
+		</div>
+
+		<br>
+
+		<div class="container__sub project">
+			<div class="proj_desc pad_r">
+				<div class="proj_name"><strong>Video Live-Streaming Website</strong></div>
+				<div>
+					This app provides live video streaming service similar to YouTube and Twitch. Website also shows
+					currently live channels that viewers can watch.
+				</div>
+				<br>
+				<div>
+					<p>Technologies used:</p>
+					<ul>
+						<li><strong>PHP</strong> backend</li>
+						<li><strong>CSS</strong> styling</li>
+						<li><strong>Docker</strong> for development and deployment</li>
+						<li><strong>Git</strong> for development</li>
+						<li><strong>NGINX</strong> web server</li>
+						<li><strong>nginx-rtmp-module</strong> for video processing</li>
+						<li><strong>Plyr</strong> video player</li>
+						<li><strong>Ubuntu/Linux</strong> server</li>
+					</ul>
+				</div>
+				<div href="https://stream.enxas.eu" target="_blank" class="btn-link">
+					<div class="button">CURRENTLY OFFLINE
+						<svg class="newTabSVG" version="1.1" xmlns="http://www.w3.org/2000/svg"
+							xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512"
+							xml:space="preserve">
+							<g>
+								<path
+									d="M455.3,455.3H56.7V56.7H256V0H56.7C25.4,0,0,25.4,0,56.7v398.7C0,486.6,25.4,512,56.7,512h398.7c31.3,0,56.7-25.4,56.7-56.7V256h-56.7C455.3,256,455.3,455.3,455.3,455.3z M312.7,0v56.7h102.6L134.8,337.1l40.1,40.1L455.3,96.7v102.6H512V0H312.7z" />
+							</g>
+						</svg>
+					</div>
+				</div>
+			</div>
+			<div class="proj_img">
+				<img src="./assets/streaming.png" loading="lazy" alt="image of Live-Streaming Website">
+			</div>
+		</div>
+
+		<br>
+
+		<div class="container__sub project">
+			<div class="proj_desc pad_r">
+				<div>
+					<div class="proj_name"><strong>Nevermor - Video Game</strong></div>
+					<div>
+						Simple and fun 3D card video game, where you build an army to defeat the enemy.
+					</div>
+					<br>
+					<div>
+						Technologies used:
+						<ul>
+							<li><strong>Godot</strong> rendering engine</li>
+							<li><strong>C#</strong> programming language</li>
+							<li><strong>Git</strong> for development</li>
+							<li>Hosten on <strong>itch.io</strong> marketplace</li>
+						</ul>
+					</div>
+				</div>
+				<div>
+					<a href="https://enxas.itch.io/nevermor" target="_blank" class="btn-link">
+						<div class="button">Check It Out
+							<svg class="newTabSVG" version="1.1" xmlns="http://www.w3.org/2000/svg"
+								xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512"
+								xml:space="preserve">
+								<g>
+									<path
+										d="M455.3,455.3H56.7V56.7H256V0H56.7C25.4,0,0,25.4,0,56.7v398.7C0,486.6,25.4,512,56.7,512h398.7c31.3,0,56.7-25.4,56.7-56.7V256h-56.7C455.3,256,455.3,455.3,455.3,455.3z M312.7,0v56.7h102.6L134.8,337.1l40.1,40.1L455.3,96.7v102.6H512V0H312.7z" />
+								</g>
+							</svg>
+						</div>
+					</a>
+				</div>
+			</div>
+			<div class="proj_img">
+				<img src="./assets/nevermor.jpg" loading="lazy" alt="image of Nevermor video game">
+			</div>
+		</div>
+
+		<br>
+
+		<div class="container__sub project">
+			<div class="proj_desc pad_r">
+				<div>
+					<div class="proj_name"><strong>Shrouded Chambers - Video Game</strong></div>
+					<div>
+						You play as a mage who is exploring abandoned chambers, but to do that you must first clear the
+						demonic infestation!
+					</div>
+					<br>
+					<div>
+						Technologies used:
+						<ul>
+							<li><strong>Godot</strong> rendering engine</li>
+							<li><strong>C#</strong> programming language</li>
+							<li><strong>Git</strong> for development</li>
+							<li>Hosten on <strong>itch.io</strong> marketplace</li>
+						</ul>
+					</div>
+				</div>
+				<div>
+					<a href="https://enxas.itch.io/shrouded-chambers" target="_blank" class="btn-link">
+						<div class="button">Check It Out
+							<svg class="newTabSVG" version="1.1" xmlns="http://www.w3.org/2000/svg"
+								xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512"
+								xml:space="preserve">
+								<g>
+									<path
+										d="M455.3,455.3H56.7V56.7H256V0H56.7C25.4,0,0,25.4,0,56.7v398.7C0,486.6,25.4,512,56.7,512h398.7c31.3,0,56.7-25.4,56.7-56.7V256h-56.7C455.3,256,455.3,455.3,455.3,455.3z M312.7,0v56.7h102.6L134.8,337.1l40.1,40.1L455.3,96.7v102.6H512V0H312.7z" />
+								</g>
+							</svg>
+						</div>
+					</a>
+				</div>
+			</div>
+			<div class="proj_img">
+				<img src="./assets/shrouded_chambers.jpg" loading="lazy" alt="image of Shrouded Chambers video game">
+			</div>
+		</div>
+
+		<hr>
+
+		<div class="head2">
+			Other Things I’ve Built
+		</div>
+
+		<div class="container__sub font20">
+			<p>Many of the tools and projects that I have worked on can't be showcased well, so here's a short list:</p>
+			<br>
+			<ul>
+				<li><strong>Typescript</strong> command line app that monitors Twitch.tv and YouTube live streams, thne
+					dowloads them</li>
+				<li>Various demo projects with <strong>Unity</strong> and <strong>Godot</strong> engines using
+					<strong>C#</strong> language
+				</li>
+				<li>Multithreaded game server using <strong>Rust</strong> language</li>
+				<li>Image downloader using <strong>Node.js</strong> JavaScript runtime</li>
+				<li>Browser extension that shows your saved websites when you open a new tab</li>
+				<li>and many more...</li>
+			</ul>
+			<br>
+			<p>Most of my projects are private, but you can find some of them on my <strong><a
+						href="https://github.com/enxas/" class="white">GitHub</a></strong> page.</p>
+		</div>
+
+		<hr>
+
+		<div class="head2" id="contact">
+			Get In Touch
+		</div>
+
+		<div class="container__sub font20">
+			If you have any questions feel free to send me an email at <strong><a href="mailto:enxas@pm.me"
+					class="white" rel="noopener noreferrer" target="_blank">enxas@pm.me</a></strong>
+		</div>
+
+	</div>
+
+</body>
+
+</html>
